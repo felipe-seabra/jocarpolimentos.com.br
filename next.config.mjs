@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.anota.ai', // Domínio das imagens da API
+        // hostname: '*.anota.ai', // Domínio das imagens da API
       },
     ],
   },
