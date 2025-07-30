@@ -15,39 +15,47 @@ export function NoticeOperationComponent() {
     const hours = now.getHours()
 
     const openHour = 8
-    const closeHourWeekdays = 18
-    const closeHourSaturday = 12
+    const closeHourWeekdays = 17
 
-    // Lista manual de feriados (no formato YYYY-MM-DD)
     const holidays = [
       '2025-04-21', // Tiradentes
       '2025-05-01', // Dia do Trabalho
-      // Adicione outros feriados conforme necessário
     ]
 
-    const todayStr = now.toISOString().split('T')[0] // pega só a parte da data YYYY-MM-DD
+    const todayStr = now.toISOString().split('T')[0]
+    const isHoliday = holidays.includes(todayStr)
+
+    // Função para encontrar o próximo dia útil
+    function getNextBusinessDay(date: Date): string {
+      const options: Intl.DateTimeFormatOptions = { weekday: 'long' }
+      const newDate = new Date(date)
+      do {
+        newDate.setDate(newDate.getDate() + 1)
+      } while (
+        newDate.getDay() === 0 || // domingo
+        newDate.getDay() === 6 || // sábado
+        holidays.includes(newDate.toISOString().split('T')[0])
+      )
+      const weekday = newDate.toLocaleDateString('pt-BR', options)
+      return weekday.charAt(0).toUpperCase() + weekday.slice(1) // capitaliza
+    }
 
     let newStatusText = ''
     let newTextColor = 'text-red-400'
 
-    const isHoliday = holidays.includes(todayStr)
-
     if (isHoliday) {
-      newStatusText = `FECHADO - ABRE ÀS ${openHour}H NA TERÇA`
+      const nextDay = getNextBusinessDay(now)
+      newStatusText = `FECHADO - VOLTAMOS NA ${nextDay.toUpperCase()} ÀS ${openHour}H`
     } else if (dayOfWeek === 0) {
-      newStatusText = `FECHADO - ABRE ÀS ${openHour}H NA SEGUNDA`
+      newStatusText = `FECHADO - VOLTAMOS NA SEGUNDA ÀS ${openHour}H`
     } else if (dayOfWeek === 6) {
-      if (hours >= openHour && hours < closeHourSaturday) {
-        newStatusText = `ABERTO - FECHA ÀS ${closeHourSaturday}H`
-        newTextColor = 'text-green-400'
-      } else {
-        newStatusText = `FECHADO - ABRE ÀS ${openHour}H NA SEGUNDA`
-      }
+      newStatusText = `FECHADO - VOLTAMOS NA SEGUNDA ÀS ${openHour}H`
     } else if (dayOfWeek >= 1 && dayOfWeek <= 5) {
       if (hours < openHour) {
         newStatusText = `FECHADO - ABRE ÀS ${openHour}H`
       } else if (hours >= closeHourWeekdays) {
-        newStatusText = `FECHADO - ABRE NO DIA SEGUINTE ÀS ${openHour}H`
+        const nextDay = getNextBusinessDay(now)
+        newStatusText = `FECHADO - ABRE NA ${nextDay.toUpperCase()} ÀS ${openHour}H`
       } else {
         newStatusText = `ABERTO - FECHA ÀS ${closeHourWeekdays}H`
         newTextColor = 'text-green-400'
