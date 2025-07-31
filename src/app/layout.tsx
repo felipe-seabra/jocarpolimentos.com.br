@@ -53,6 +53,10 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <head>
+        <meta
+          name="google-site-verification"
+          content="MIMDUg7k0MzgmJq4ddNVrsV97ov-d1LNDPV1zrO5hko"
+        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#191919" />
         <link
