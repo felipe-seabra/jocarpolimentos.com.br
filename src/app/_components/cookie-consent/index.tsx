@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { HIDDEN_PATHS } from '../../../constants/constants'
+import { HIDDEN_PATHS } from '@/constants/hidden-paths'
 
 declare global {
   interface Window {
