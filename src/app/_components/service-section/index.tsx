@@ -22,7 +22,11 @@ export const ServicesSection: FC = () => (
             Correção de riscos leves e marcas de lavagem, realçando profundidade
             e brilho com acabamento de vitrine.
           </p>
-          <Link href="https://whatsapp.jocarpolimentos.com.br">
+          <Link
+            href="https://whatsapp.jocarpolimentos.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button label="Fazer orçamento" />
           </Link>
         </div>
@@ -36,7 +40,11 @@ export const ServicesSection: FC = () => (
             Proteção de longa duração contra raios UV, chuva ácida e sujeiras,
             com hidro-repelência e fácil manutenção.
           </p>
-          <Link href="https://whatsapp.jocarpolimentos.com.br">
+          <Link
+            href="https://whatsapp.jocarpolimentos.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button label="Fazer orçamento" />
           </Link>
         </div>
@@ -50,7 +58,11 @@ export const ServicesSection: FC = () => (
             Limpeza técnica de estofados, plásticos e dutos de ar, eliminando
             odores e devolvendo o aspecto de carro novo.
           </p>
-          <Link href="https://whatsapp.jocarpolimentos.com.br">
+          <Link
+            href="https://whatsapp.jocarpolimentos.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button label="Fazer orçamento" />
           </Link>
         </div>
@@ -66,7 +78,11 @@ export const ServicesSection: FC = () => (
             Remoção de amarelado e opacidade com proteção UV para melhorar a
             estética e a visibilidade noturna.
           </p>
-          <Link href="https://whatsapp.jocarpolimentos.com.br">
+          <Link
+            href="https://whatsapp.jocarpolimentos.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button label="Fazer orçamento" />
           </Link>
         </div>

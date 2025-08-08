@@ -16,7 +16,11 @@ export const HeroSection: FC = () => (
         <br />
         Entre em contato conosco para agendar um horário.
       </h2>
-      <Link href="https://whatsapp.jocarpolimentos.com.br">
+      <Link
+        href="https://whatsapp.jocarpolimentos.com.br"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Button label="AGENDAR" />
       </Link>
     </ScrollReveal>
