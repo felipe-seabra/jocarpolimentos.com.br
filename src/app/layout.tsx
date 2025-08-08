@@ -1,30 +1,28 @@
-/* eslint-disable @next/next/no-page-custom-font */
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import './globals.css'
 
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Toaster } from '@/components/ui/toaster'
-
-import Provider from '@/utils/providers'
-import { TooltipProvider } from '@/components/ui/tooltip'
-
 import {
-  COMPANY_NAME,
-  SITE_URL,
   COMPANY_DESCRIPTION,
+  COMPANY_NAME,
   OG_IMAGE,
-} from '@/constants/constants'
+  SITE_URL,
+} from '@/constants/metadata'
 
-import {
-  AnalyticsComponent,
-  ScrollUpButton,
-  CookieConsentComponent,
-  Footer,
-} from './_components'
+import { AnalyticsComponent, CookieConsentComponent } from './_components'
 
-const inter = Inter({ subsets: ['latin'] })
+const geistSans = localFont({
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+})
+const geistMono = localFont({
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+})
 
-const PAGE_TITLE = 'Links Oficiais'
+const PAGE_TITLE = COMPANY_DESCRIPTION
 
 export const metadata: Metadata = {
   title: `${COMPANY_NAME} | ${PAGE_TITLE}`,
@@ -51,12 +49,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt">
+    <html lang="pt-BR">
       <head>
-        <meta
-          name="google-site-verification"
-          content="MIMDUg7k0MzgmJq4ddNVrsV97ov-d1LNDPV1zrO5hko"
-        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#191919" />
         <link
@@ -64,17 +58,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className}>
-        <Provider>
-          <TooltipProvider>
-            {children}
-            <Footer />
-            <ScrollUpButton />
-            <CookieConsentComponent />
-            <Toaster />
-            <AnalyticsComponent />
-          </TooltipProvider>
-        </Provider>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
+        <CookieConsentComponent />
+        <AnalyticsComponent />
       </body>
     </html>
   )
