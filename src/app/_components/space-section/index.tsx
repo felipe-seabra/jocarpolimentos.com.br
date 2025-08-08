@@ -49,9 +49,12 @@ export const SpaceSection: FC = () => (
 
       <ScrollReveal XorY="X" minusplus="-" transition="0.8s">
         <div className="kids-image-area">
-          <img src="/images/space.png" alt="Acompanhamento e conveniência" />
+          <img src="/images/space.webp" alt="Acompanhamento e conveniência" />
           <div className="bg-img">
-            <img src="/images/logo.webp" alt="Logo Jocar Polimentos" />
+            <img
+              src="/images/logo-background-black.webp"
+              alt="Logo Jocar Polimentos"
+            />
           </div>
         </div>
       </ScrollReveal>

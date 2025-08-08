@@ -1,42 +1,58 @@
 'use client'
 
 import { slideData } from '../data/slideData'
-import { useEffect, useState } from 'react'
-
-const slideWidth = 800
+import { useEffect, useRef, useState } from 'react'
 
 export const Slider = ({ currentSlide }: { currentSlide: number }) => {
+  const [cardWidth, setCardWidth] = useState(800)
   const [offset, setOffset] = useState(0)
+  const firstCardRef = useRef<HTMLDivElement | null>(null)
 
+  // mede a largura real do 1º card
   useEffect(() => {
-    const totalSlides = slideData.length
+    if (!firstCardRef.current) return
+    const ro = new ResizeObserver((entries) => {
+      const w = entries[0]?.contentRect?.width
+      if (w) setCardWidth(w)
+    })
+    ro.observe(firstCardRef.current)
+    return () => ro.disconnect()
+  }, [])
 
-    if (totalSlides <= 1) {
-      // Só um slide: centraliza
+  // calcula o deslocamento correto
+  useEffect(() => {
+    const total = slideData.length
+
+    if (total <= 1) {
       setOffset(0)
       return
     }
 
-    if (totalSlides % 2 === 1) {
+    if (total % 2 === 1) {
       // Ímpar: centraliza no item do meio
-      const centerIndex = Math.floor(totalSlides / 2)
-      const calcOffset = (currentSlide - centerIndex) * slideWidth * -1
-      setOffset(calcOffset)
+      const centerIndex = Math.floor(total / 2)
+      const calc = -(currentSlide - centerIndex) * cardWidth
+      setOffset(calc)
     } else {
-      // Par: centraliza no meio exato (entre os dois centrais)
-      // Ex.: total=4 → meio é 1.5 (entre índices 1 e 2)
-      const centerPoint = totalSlides / 2 - 0.5
-      const calcOffset = (currentSlide - centerPoint) * slideWidth * -1
-      setOffset(calcOffset)
+      // Par: começa no primeiro
+      const calc = -(currentSlide * cardWidth)
+      setOffset(calc)
     }
-  }, [currentSlide])
+  }, [currentSlide, cardWidth])
 
   return (
-    <div className="slider-area" style={{ marginLeft: `${offset}px` }}>
+    <div
+      className="slider-area"
+      style={{
+        transform: `translateX(${offset}px)`,
+        transition: 'transform 300ms ease',
+      }}
+    >
       {slideData.map((item, index) => (
         <div
           className={`slide-card ${index === currentSlide ? 'active' : 'inactive'}`}
           key={index}
+          ref={index === 0 ? firstCardRef : null}
         >
           <div
             className="team-image"

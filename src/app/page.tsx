@@ -18,9 +18,14 @@ import {
 
 const righteous = Righteous({ weight: '400', subsets: ['latin'] })
 
+const startIndex =
+  slideData.length % 2 === 1
+    ? Math.floor(slideData.length / 2) // ímpar: meio
+    : 0 // par: primeiro
+
 export default function Home() {
   const [isMobileNav, setIsMobileNav] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(2)
+  const [currentSlide, setCurrentSlide] = useState(startIndex)
   const [email, setEmail] = useState('')
   const [modalProps, setModalProps] = useState<{ isValid: boolean } | null>(
     null,
