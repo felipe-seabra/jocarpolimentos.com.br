@@ -1,6 +1,9 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import {
+  useState,
+  // FormEvent
+} from 'react'
 import { Righteous } from 'next/font/google'
 
 import { MobileNav } from '../components/mobileNav'
@@ -13,7 +16,7 @@ import {
   HeroSection,
   SpaceSection,
   ServicesSection,
-  SubscribeSection,
+  // SubscribeSection,
 } from './_components'
 
 const righteous = Righteous({ weight: '400', subsets: ['latin'] })
@@ -26,10 +29,10 @@ const startIndex =
 export default function Home() {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(startIndex)
-  const [email, setEmail] = useState('')
-  const [modalProps, setModalProps] = useState<{ isValid: boolean } | null>(
-    null,
-  )
+  // const [email, setEmail] = useState('')
+  // const [modalProps, setModalProps] = useState<{ isValid: boolean } | null>(
+  //   null,
+  // )
 
   const handleMenuMobileClick = () => {
     setIsMobileNav(!isMobileNav)
@@ -43,22 +46,22 @@ export default function Home() {
     setCurrentSlide((prev) => (prev === slideData.length - 1 ? 0 : prev + 1))
   }
 
-  const handleSubmitEmail = (evt: FormEvent) => {
-    evt.preventDefault()
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (email.trim() === '') {
-      setModalProps({ isValid: false })
-    } else if (!emailRegex.test(email)) {
-      alert('erro na validação do email')
-    } else {
-      setModalProps({ isValid: true })
-    }
-  }
+  // const handleSubmitEmail = (evt: FormEvent) => {
+  //   evt.preventDefault()
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  //   if (email.trim() === '') {
+  //     setModalProps({ isValid: false })
+  //   } else if (!emailRegex.test(email)) {
+  //     alert('erro na validação do email')
+  //   } else {
+  //     setModalProps({ isValid: true })
+  //   }
+  // }
 
-  const handleCloseModal = () => {
-    setModalProps(null)
-    setEmail('')
-  }
+  // const handleCloseModal = () => {
+  //   setModalProps(null)
+  //   setEmail('')
+  // }
 
   return (
     <div className={`text-white ${righteous.className}`}>
@@ -80,13 +83,13 @@ export default function Home() {
           handleSlidePrev={handleSlidePrev}
           handleSlideNext={handleSlideNext}
         />
-        <SubscribeSection
+        {/* <SubscribeSection
           email={email}
           modalProps={modalProps}
           handleSubmitEmail={handleSubmitEmail}
           handleEmailChange={(e) => setEmail(e.target.value)}
           handleCloseModal={handleCloseModal}
-        />
+        /> */}
         <FooterSection />
       </main>
     </div>

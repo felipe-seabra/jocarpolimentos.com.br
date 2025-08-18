@@ -26,7 +26,7 @@ const footer = {
 }
 
 export const FooterSection: FC = () => (
-  <footer>
+  <footer id="contact">
     <div className="footer-container">
       <div className="footer-div">
         <h2>Links</h2>

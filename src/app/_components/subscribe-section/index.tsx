@@ -18,7 +18,7 @@ export const SubscribeSection: FC<Props> = ({
   handleEmailChange,
   handleCloseModal,
 }) => (
-  <section className="subscribe-section" id="contact">
+  <section className="subscribe-section">
     <img src="/images/logo.webp" alt={`Logo da ${COMPANY_NAME}`} />
     <div className="subscribe-area">
       <h2>Inscreva-se na nossa Newsletter</h2>
