@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC } from 'react'
 
 import { ScrollReveal } from '@/components/ScrollReveal'
@@ -44,10 +45,12 @@ export const AboutSection: FC = () => (
         </div>
       </div>
 
-      <img
+      <Image
         src="/images/vitrification.webp"
         id="about-img"
         alt="Jocar Polimentos - vitrificação de pintura"
+        width={500} // TODO: update width
+        height={500} // TODO: update height
       />
     </div>
   </section>

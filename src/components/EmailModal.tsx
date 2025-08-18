@@ -16,7 +16,10 @@ export const EmailModal = ({ isValid, onClose }: Props) => {
           {isValid &&
             'Agradecemos por se inscrever para receber nossos e-mails. A partir de agora, você ficará por dentro das últimas tendências e atualizações do mundo manutenção automotiva.'}
         </p>
-        <button className="button" onClick={onClose}>
+        <button
+          className="px-5 py-4 rounded-xl bg-red-600 text-white transition-all duration-200 hover:brightness-110"
+          onClick={onClose}
+        >
           Confirmar
         </button>
       </div>

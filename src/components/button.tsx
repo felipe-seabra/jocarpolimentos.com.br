@@ -13,7 +13,10 @@ export function Button({ label, scrollTo }: props) {
   }
 
   return (
-    <button className="button text-white" onClick={handleScrollTo}>
+    <button
+      className="px-5 py-4 rounded-xl bg-red-600 text-white transition-all duration-200 hover:brightness-110"
+      onClick={handleScrollTo}
+    >
       {label}
     </button>
   )
