@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-// import Image from 'next/image'
+import Image from 'next/image'
 import Utils from '@/lib/utils'
 
 import { Input } from '@/components/ui/input'
@@ -64,9 +64,11 @@ export function ChatPopUpComponent() {
       {isOpen && (
         <>
           <div className="mb-10 mr-3 h-12 w-12 rounded-full shadow-md">
-            <img
+            <Image
               src="/images/logo-background-black.webp"
               alt={COMPANY_NAME}
+              width={56}
+              height={56}
               className="h-auto w-14 rounded-full border-2 border-green-500 bg-real-primary"
               // priority
             />

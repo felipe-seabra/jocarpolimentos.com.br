@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC } from 'react'
 
 import { ScrollReveal } from '@/components/ScrollReveal'
@@ -49,11 +50,18 @@ export const SpaceSection: FC = () => (
 
       <ScrollReveal XorY="X" minusplus="-" transition="0.8s">
         <div className="kids-image-area">
-          <img src="/images/space.webp" alt="Acompanhamento e conveniência" />
+          <Image
+            src="/images/space.webp"
+            alt="Acompanhamento e conveniência"
+            width={500}
+            height={500}
+          />
           <div className="bg-img">
-            <img
+            <Image
               src="/images/logo-background-black.webp"
               alt="Logo Jocar Polimentos"
+              width={100}
+              height={100}
             />
           </div>
         </div>

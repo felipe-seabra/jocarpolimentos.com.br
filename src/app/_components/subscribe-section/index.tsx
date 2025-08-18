@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC, FormEvent } from 'react'
 
 import { EmailModal } from '@/components/EmailModal'
@@ -19,7 +20,12 @@ export const SubscribeSection: FC<Props> = ({
   handleCloseModal,
 }) => (
   <section className="subscribe-section">
-    <img src="/images/logo.webp" alt={`Logo da ${COMPANY_NAME}`} />
+    <Image
+      src="/images/logo.webp"
+      alt={`Logo da ${COMPANY_NAME}`}
+      width={100} // TODO: update width
+      height={100} // TODO: update height
+    />
     <div className="subscribe-area">
       <h2>Inscreva-se na nossa Newsletter</h2>
       <h3>

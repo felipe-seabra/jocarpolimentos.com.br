@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { FC } from 'react'
 
 import { COMPANY_NAME } from '@/constants/metadata'
@@ -36,9 +37,11 @@ export const HeaderBar: FC<Props> = ({
           </li>
         ))}
       </ul>
-      <img
+      <Image
         src="/images/logo.webp"
         alt={`Logo da ${COMPANY_NAME}`}
+        width={100} // TODO: update width
+        height={100} // TODO: update height
         className="logo"
       />
       <ul className="header-list">
