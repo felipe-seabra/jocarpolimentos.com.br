@@ -1,9 +1,16 @@
 'use client'
 
 import { slideData } from '../data/slideData'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, RefObject } from 'react'
 
-export const Slider = ({ currentSlide }: { currentSlide: number }) => {
+interface SliderProps {
+  // Nova interface para as props
+  currentSlide: number
+  sliderContainerRef: RefObject<HTMLDivElement> // Receber o ref do container
+}
+
+export const Slider = ({ currentSlide, sliderContainerRef }: SliderProps) => {
+  // Usar a nova interface
   const [cardWidth, setCardWidth] = useState(800)
   const [offset, setOffset] = useState(0)
   const firstCardRef = useRef<HTMLDivElement | null>(null)
@@ -22,23 +29,22 @@ export const Slider = ({ currentSlide }: { currentSlide: number }) => {
   // calcula o deslocamento correto
   useEffect(() => {
     const total = slideData.length
+    const cardTotalWidth = cardWidth + 100 // 250px (width) + 50px (left margin) + 50px (right margin) = 350px. cardWidth is 250px, so add 100px for margins.
 
     if (total <= 1) {
       setOffset(0)
       return
     }
 
-    if (total % 2 === 1) {
-      // Ímpar: centraliza no item do meio
-      const centerIndex = Math.floor(total / 2)
-      const calc = -(currentSlide - centerIndex) * cardWidth
-      setOffset(calc)
-    } else {
-      // Par: começa no primeiro
-      const calc = -(currentSlide * cardWidth)
-      setOffset(calc)
-    }
-  }, [currentSlide, cardWidth])
+    // Obter a largura do container do slider
+    const containerWidth = sliderContainerRef.current?.offsetWidth || 0
+
+    // Calcular o offset para centralizar o card
+    const targetCardCenter = currentSlide * cardTotalWidth + cardTotalWidth / 2
+    const newOffset = containerWidth / 2 - targetCardCenter
+
+    setOffset(newOffset)
+  }, [currentSlide, cardWidth, sliderContainerRef]) // Adicionar sliderContainerRef às dependências
 
   return (
     <div
