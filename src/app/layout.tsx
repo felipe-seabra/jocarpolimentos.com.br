@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}`,
     title: `${COMPANY_NAME} | ${PAGE_TITLE}`,
     description: `${COMPANY_DESCRIPTION}`,
-    siteName: `${COMPANY_NAME} | ${PAGE_TITLE}`,
+    siteName: `${COMPANY_NAME}`,
     images: [
       {
         url: `${OG_IMAGE}`,
