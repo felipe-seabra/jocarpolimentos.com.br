@@ -2,6 +2,7 @@
 
 import {
   useState,
+  useEffect,
   // FormEvent
 } from 'react'
 import { Righteous } from 'next/font/google'
@@ -29,6 +30,15 @@ const startIndex =
 export default function Home() {
   const [isMobileNav, setIsMobileNav] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(startIndex)
+
+  useEffect(() => {
+    // Adiciona um pequeno atraso para garantir que a rolagem do navegador para a âncora (se houver) ocorra primeiro.
+    // Em seguida, força a rolagem para o topo da página.
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+    }, 1)
+  }, [])
+
   // const [email, setEmail] = useState('')
   // const [modalProps, setModalProps] = useState<{ isValid: boolean } | null>(
   //   null,
