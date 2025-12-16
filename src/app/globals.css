@@ -495,20 +495,30 @@ section {
 
 .slider-container {
   display: flex;
-  justify-content: center;
-  overflow: hidden;
-  padding: 40px 20px;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable CSS Scroll Snap */
+  padding: 40px 0; /* Adjust padding to avoid cutting off side cards */
   width: 100%;
   margin: 0 auto;
   position: relative;
+
+  /* Hide scrollbar for a cleaner look */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 .slider-area {
   display: flex;
-  transition: all ease 0.5s;
+  /* Adiciona padding horizontal para dar espaço para a centralização nos cantos */
+  padding: 0 35vw;
 }
 
 .slide-card {
+  scroll-snap-align: center; /* Center the card on snap */
   flex-shrink: 0;
   margin: 0 50px;
   transition: all 0.5s;
