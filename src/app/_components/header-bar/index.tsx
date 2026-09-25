@@ -40,8 +40,8 @@ export const HeaderBar: FC<Props> = ({
       <Image
         src="/images/logo.webp"
         alt={`Logo da ${COMPANY_NAME}`}
-        width={100} // TODO: update width
-        height={100} // TODO: update height
+        width={100}
+        height={100}
         className="logo"
       />
       <ul className="header-list">
