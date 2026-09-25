@@ -1,40 +1,95 @@
 # Jocar Polimentos
 
-Este é o site da Jocar Polimentos, uma estética automotiva.
+A modern, responsive website for an automotive detailing business, built with Next.js, TypeScript and Tailwind CSS.
 
-## Tecnologias Utilizadas
+The project focuses on a clean visual presentation, reusable UI components, responsive layouts and a conversion-oriented structure for a local service business.
 
-*   **Frontend**: React.js com Next.js
-*   **Estilização**: Tailwind CSS
-*   **Linguagem**: TypeScript
+## Highlights
 
-## Como executar o projeto
+- Responsive institutional website
+- Component-based architecture with Next.js
+- Reusable React components
+- Tailwind CSS styling
+- TypeScript throughout the application
+- Structured content and reusable project constants
+- Cookie consent management
+- Google Analytics integration through environment configuration
+- SEO-friendly page structure
+- Optimized static assets and responsive imagery
 
-1.  Clone o repositório:
-    ```bash
-    git clone https://github.com/felipeseabra/jocarpolimentos.com.br.git
-    ```
-2.  Instale as dependências:
-    ```bash
-    npm install
-    ```
-3.  Execute o projeto:
-    ```bash
-    npm run dev
-    ```
+## Tech Stack
 
-## Estrutura do Projeto
+- **Next.js** — React framework and application architecture
+- **React** — Component-based UI development
+- **TypeScript** — Type-safe application code
+- **Tailwind CSS** — Utility-first styling
+- **Silktide Cookie Consent** — Cookie preference management
+- **Google Analytics** — Optional analytics integration
 
-O projeto está estruturado da seguinte forma:
+## Project Structure
 
-*   `src/app`: Contém as páginas da aplicação.
-*   `src/app/_components`: Contém os componentes utilizados nas páginas.
-*   `src/components`: Contém os componentes reutilizáveis.
-*   `src/constants`: Contém as constantes do projeto.
-*   `src/data`: Contém os dados do projeto.
-*   `src/lib`: Contém as funções utilitárias.
-*   `public`: Contém os arquivos estáticos.
+```text
+src/
+├── app/
+│   ├── _components/     # Page-specific components
+│   ├── components/      # Application components
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/          # Reusable UI components
+├── constants/           # Shared project constants
+├── data/                # Structured content
+└── lib/                 # Utility functions
 
-## Licença
+public/                  # Static assets
+```
 
-Este projeto está licenciado sob a licença MIT.
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/felipeseabra/jocarpolimentos.com.br.git
+cd jocarpolimentos.com.br
+npm install
+```
+
+### Environment Variables
+
+If analytics are enabled, configure the required environment variable locally:
+
+```env
+NEXT_PUBLIC_ANALYTICS_ID=your-analytics-id
+```
+
+Never commit real environment variables or credentials to the repository.
+
+### Development
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Architecture
+
+The application uses the Next.js App Router and separates page-specific components, reusable UI components, structured content and utility logic.
+
+The project follows a component-driven approach designed to keep the interface maintainable while supporting responsive layouts and consistent visual patterns.
+
+## Privacy & Analytics
+
+The project includes cookie consent management and optional analytics integration. Analytics identifiers are provided through environment variables rather than being hardcoded in the source code.
+
+## Project Scope
+
+Jocar Polimentos is an example of a commercial website built for a local automotive detailing business. The implementation emphasizes responsive frontend development, reusable components, visual consistency and a clear service-oriented user experience.
+
+## License
+
+This project is licensed under the MIT License.
