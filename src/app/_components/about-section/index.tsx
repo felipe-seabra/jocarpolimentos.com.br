@@ -49,8 +49,8 @@ export const AboutSection: FC = () => (
         src="/images/vitrification.webp"
         id="about-img"
         alt="Jocar Polimentos - vitrificação de pintura"
-        width={500} // TODO: update width
-        height={500} // TODO: update height
+        width={500}
+        height={500}
       />
     </div>
   </section>
