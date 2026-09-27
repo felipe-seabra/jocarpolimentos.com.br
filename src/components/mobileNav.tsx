@@ -5,10 +5,7 @@ type Props = {
   handleMenuMobileClick: () => void
 }
 
-export const MobileNav = ({
-  isMobileNav,
-  handleMenuMobileClick,
-}: Props) => {
+export const MobileNav = ({ isMobileNav, handleMenuMobileClick }: Props) => {
   return (
     <nav
       id="mobile-navigation"
