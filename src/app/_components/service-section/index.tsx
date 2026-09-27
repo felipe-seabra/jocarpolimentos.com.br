@@ -17,7 +17,9 @@ export const ServicesSection: FC = () => (
       <ScrollReveal XorY="Y" minusplus="-" transition="0.8s">
         <div className="skill">
           <FaPaintBrush className="skill-icon" />
-          <h3 className="skill-title">Polimento Automotivo Técnico &amp; Espelhamento</h3>
+          <h3 className="skill-title">
+            Polimento Automotivo Técnico &amp; Espelhamento
+          </h3>
           <p className="skill-text mb-2">
             Correção de riscos leves e marcas de lavagem, realçando profundidade
             e brilho com acabamento de vitrine.

@@ -12,7 +12,9 @@ export const HeroSection: FC = () => (
     </ScrollReveal>
     <ScrollReveal XorY="Y" minusplus="-" transition="0.8s">
       <h2 className="hero-h2">
-        Polimento automotivo, vitrificação, higienização interna e revitalização de faróis em Presidente Prudente, com atendimento de qualidade para o seu veículo.
+        Polimento automotivo, vitrificação, higienização interna e revitalização
+        de faróis em Presidente Prudente, com atendimento de qualidade para o
+        seu veículo.
         <br />
         Entre em contato conosco para agendar um horário.
       </h2>
