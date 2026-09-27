@@ -38,7 +38,7 @@ export const AboutSection: FC = () => (
             <ScrollReveal XorY="Y" minusplus="-" transition="1s">
               <div>
                 <p className="hours-week">Seg a Sex</p>
-                <p>08:00 - 17:00</p>
+                <p>08:00 - 18:00</p>
               </div>
             </ScrollReveal>
           </div>
