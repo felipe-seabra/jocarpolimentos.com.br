@@ -8,7 +8,7 @@ export const HeroSection: FC = () => (
   <section className="hero-section" id="home">
     <ScrollReveal XorY="Y" minusplus="+" transition="0.8s">
       <p className="local-hero">Presidente Prudente - São Paulo</p>
-      <h1 className="hero-h1">Estética Automotiva em Presidente Prudente</h1>
+      <h1 className="hero-h1">Seu veículo em boas mãos!</h1>
     </ScrollReveal>
     <ScrollReveal XorY="Y" minusplus="-" transition="0.8s">
       <h2 className="hero-h2">
