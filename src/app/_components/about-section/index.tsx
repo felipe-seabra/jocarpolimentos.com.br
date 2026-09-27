@@ -9,15 +9,15 @@ export const AboutSection: FC = () => (
       <div className="about-section-text">
         <ScrollReveal transition="1s" XorY="x" minusplus="-">
           <h2 className="about-section-h2">
-            Nós temos <span className="yearsExp">paixão</span> por{' '}
-            <span className="experience">Detalhes</span>
+            Estética automotiva em <span className="yearsExp">Presidente Prudente</span>
           </h2>
         </ScrollReveal>
 
         <p className="about-text">
-          A <strong>Jocar Polimentos</strong> é especialista em estética
-          automotiva: polimento técnico, cristalização/cerâmica, espelhamento,
-          proteção de pintura, higienização interna e revitalização de faróis.
+          A <strong>Jocar Polimentos</strong> é especializada em estética automotiva
+          em Presidente Prudente, com serviços de polimento técnico, cristalização
+          e cerâmica, espelhamento, proteção de pintura, higienização interna e
+          revitalização de faróis.
           Cuidamos de cada detalhe para devolver o brilho, a proteção e a
           sensação de carro novo — do capô ao acabamento.
         </p>

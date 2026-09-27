@@ -17,7 +17,7 @@ export const ServicesSection: FC = () => (
       <ScrollReveal XorY="Y" minusplus="-" transition="0.8s">
         <div className="skill">
           <FaPaintBrush className="skill-icon" />
-          <h3 className="skill-title">Polimento Técnico &amp; Espelhamento</h3>
+          <h3 className="skill-title">Polimento Automotivo Técnico &amp; Espelhamento</h3>
           <p className="skill-text mb-2">
             Correção de riscos leves e marcas de lavagem, realçando profundidade
             e brilho com acabamento de vitrine.
@@ -35,7 +35,7 @@ export const ServicesSection: FC = () => (
       <ScrollReveal XorY="Y" minusplus="-" transition="1s">
         <div className="skill">
           <FaShieldAlt className="skill-icon" />
-          <h3 className="skill-title">Vitrificação / Cerâmica</h3>
+          <h3 className="skill-title">Vitrificação Automotiva / Cerâmica</h3>
           <p className="skill-text mb-2">
             Proteção de longa duração contra raios UV, chuva ácida e sujeiras,
             com hidro-repelência e fácil manutenção.
@@ -53,7 +53,7 @@ export const ServicesSection: FC = () => (
       <ScrollReveal XorY="Y" minusplus="-" transition="1.2s">
         <div className="skill">
           <FaSprayCan className="skill-icon" />
-          <h3 className="skill-title">Higienização Interna</h3>
+          <h3 className="skill-title">Higienização Interna Automotiva</h3>
           <p className="skill-text mb-10">
             Limpeza técnica de estofados, plásticos e dutos de ar, eliminando
             odores e devolvendo o aspecto de carro novo.

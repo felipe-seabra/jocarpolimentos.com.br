@@ -19,7 +19,7 @@ export const TeamSection: FC<Props> = ({
   return (
     <section className="teams-section" id="team">
       <h2 className="teams-title">
-        Nossa <span>equipe</span>
+        Equipe de <span>estética automotiva</span>
       </h2>
       <Slider currentSlide={currentSlide} />
       <div className="slide-btn-area">
