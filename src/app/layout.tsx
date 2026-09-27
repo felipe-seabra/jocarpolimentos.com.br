@@ -5,7 +5,6 @@ import './globals.css'
 import {
   COMPANY_ADDRESS,
   COMPANY_DESCRIPTION,
-  COMPANY_HOURS,
   COMPANY_NAME,
   COMPANY_PHONE,
   COMPANY_SOCIALS,
@@ -81,19 +80,11 @@ const structuredData = {
     '@type': 'PostalAddress',
     ...COMPANY_ADDRESS,
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: COMPANY_HOURS.dayOfWeek,
-      opens: COMPANY_HOURS.opens,
-      closes: COMPANY_HOURS.closes,
-    },
-  ],
   areaServed: {
     '@type': 'City',
     name: 'Presidente Prudente',
   },
-  sameAs: COMPANY_SOCIALS,
+  sameAs: [COMPANY_SOCIALS[0]],
 }
 
 export default function RootLayout({
@@ -106,10 +97,6 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#191919" />
-        <link
-          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

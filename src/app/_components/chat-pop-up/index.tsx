@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import { FaWhatsapp, FaXmark } from 'react-icons/fa6'
 import Utils from '@/lib/utils'
 
 import { Input } from '@/components/ui/input'
@@ -58,7 +59,7 @@ export function ChatPopUpComponent() {
           onClick={handleTogglePopup}
           className=" flex items-center rounded-full bg-green-600 px-4 py-4 shadow-md hover:bg-green-500"
         >
-          <i className="bx bxl-whatsapp text-3xl" style={{ color: 'white' }} />
+          <FaWhatsapp className="text-3xl text-white" />
         </div>
       )}
       {isOpen && (
@@ -101,7 +102,7 @@ export function ChatPopUpComponent() {
               onClick={handleClosePopup}
               className="absolute right-0 top-[-35px] flex h-7 w-7 items-center justify-center rounded-full bg-green-500 shadow-sm hover:bg-green-400"
             >
-              <i className="bx bx-x text-2xl" style={{ color: 'white' }} />
+              <FaXmark className="text-2xl text-white" />
             </button>
           </div>
         </>
