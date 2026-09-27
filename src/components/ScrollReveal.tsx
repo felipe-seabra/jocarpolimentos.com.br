@@ -1,38 +1,41 @@
 'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 
-type props = {
+type Props = {
   children: React.ReactNode
   transition: string
   XorY: string
   minusplus: string
 }
+
 export const ScrollReveal = ({
   children,
   transition,
   XorY,
   minusplus,
-}: props) => {
+}: Props) => {
   const revealRef = useRef<HTMLDivElement | null>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const handleScrollEvent = () => {
-      if (revealRef.current) {
-        const top = revealRef.current.getBoundingClientRect().top
-        const windowHeight = window.innerHeight
-        if (top < windowHeight) {
+    const element = revealRef.current
+
+    if (!element) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setIsVisible(true)
-        } else {
-          setIsVisible(false)
+          observer.disconnect()
         }
-      }
-    }
-    window.addEventListener('scroll', handleScrollEvent)
-    handleScrollEvent()
-    return () => {
-      window.removeEventListener('scroll', handleScrollEvent)
-    }
+      },
+      { threshold: 0.1 },
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
   }, [])
 
   return (

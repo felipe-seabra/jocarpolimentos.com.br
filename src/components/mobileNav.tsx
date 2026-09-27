@@ -1,14 +1,17 @@
 'use client'
 
-type props = {
+type Props = {
   isMobileNav: boolean
   handleMenuMobileClick: () => void
 }
-export const MobileNav = ({ isMobileNav, handleMenuMobileClick }: props) => {
+
+export const MobileNav = ({ isMobileNav, handleMenuMobileClick }: Props) => {
   return (
-    <div
-      className={`mobile-nav
-         ${isMobileNav ? 'show-mobile-nav' : ''}`}
+    <nav
+      id="mobile-navigation"
+      className={`mobile-nav ${isMobileNav ? 'show-mobile-nav' : ''}`}
+      aria-label="Navegação mobile"
+      aria-hidden={!isMobileNav}
     >
       <a href="#home" onClick={handleMenuMobileClick}>
         Início
@@ -28,6 +31,6 @@ export const MobileNav = ({ isMobileNav, handleMenuMobileClick }: props) => {
       <a href="#contact" onClick={handleMenuMobileClick}>
         Contato
       </a>
-    </div>
+    </nav>
   )
 }
