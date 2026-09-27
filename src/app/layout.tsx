@@ -3,8 +3,12 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 import {
+  COMPANY_ADDRESS,
   COMPANY_DESCRIPTION,
+  COMPANY_HOURS,
   COMPANY_NAME,
+  COMPANY_PHONE,
+  COMPANY_SOCIALS,
   OG_IMAGE,
   SITE_URL,
 } from '@/constants/metadata'
@@ -22,25 +26,74 @@ const geistMono = localFont({
   weight: '100 900',
 })
 
-const PAGE_TITLE = COMPANY_DESCRIPTION
-
 export const metadata: Metadata = {
-  title: `${COMPANY_NAME} | ${PAGE_TITLE}`,
-  description: `${COMPANY_DESCRIPTION}`,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${COMPANY_NAME} | Estética Automotiva em Presidente Prudente`,
+    template: `%s | ${COMPANY_NAME}`,
+  },
+  description: COMPANY_DESCRIPTION,
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     type: 'website',
-    locale: 'pt-BR',
-    url: `${SITE_URL}`,
-    title: `${COMPANY_NAME} | ${PAGE_TITLE}`,
-    description: `${COMPANY_DESCRIPTION}`,
-    siteName: `${COMPANY_NAME}`,
+    locale: 'pt_BR',
+    url: SITE_URL,
+    title: `${COMPANY_NAME} | Estética Automotiva em Presidente Prudente`,
+    description: COMPANY_DESCRIPTION,
+    siteName: COMPANY_NAME,
     images: [
       {
-        url: `${OG_IMAGE}`,
-        alt: `${COMPANY_NAME} | ${PAGE_TITLE}`,
+        url: OG_IMAGE,
+        alt: `${COMPANY_NAME} - Estética Automotiva em Presidente Prudente`,
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${COMPANY_NAME} | Estética Automotiva em Presidente Prudente`,
+    description: COMPANY_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+}
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: COMPANY_NAME,
+  description: COMPANY_DESCRIPTION,
+  url: SITE_URL,
+  telephone: COMPANY_PHONE,
+  image: OG_IMAGE,
+  address: {
+    '@type': 'PostalAddress',
+    ...COMPANY_ADDRESS,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: COMPANY_HOURS.dayOfWeek,
+      opens: COMPANY_HOURS.opens,
+      closes: COMPANY_HOURS.closes,
+    },
+  ],
+  areaServed: {
+    '@type': 'City',
+    name: 'Presidente Prudente',
+  },
+  sameAs: COMPANY_SOCIALS,
 }
 
 export default function RootLayout({
@@ -56,6 +109,10 @@ export default function RootLayout({
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body
