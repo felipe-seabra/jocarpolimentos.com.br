@@ -5,7 +5,6 @@ import './globals.css'
 import {
   COMPANY_ADDRESS,
   COMPANY_DESCRIPTION,
-  COMPANY_HOURS,
   COMPANY_NAME,
   COMPANY_PHONE,
   COMPANY_SOCIALS,
@@ -81,19 +80,11 @@ const structuredData = {
     '@type': 'PostalAddress',
     ...COMPANY_ADDRESS,
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: COMPANY_HOURS.dayOfWeek,
-      opens: COMPANY_HOURS.opens,
-      closes: COMPANY_HOURS.closes,
-    },
-  ],
   areaServed: {
     '@type': 'City',
     name: 'Presidente Prudente',
   },
-  sameAs: COMPANY_SOCIALS,
+  sameAs: [COMPANY_SOCIALS[0]],
 }
 
 export default function RootLayout({

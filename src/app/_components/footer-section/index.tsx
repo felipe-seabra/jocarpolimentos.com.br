@@ -96,11 +96,11 @@ export const FooterSection: FC = () => (
         <div className="contact">
           <Link href={LINK_LOCATION} target="_blank" className="flex gap-3">
             <FaHouse className="footer-icon" />
-            <p>
+            <address className="not-italic">
               Av. José Libânio Filho, 454
               <br />
               Parque Cedral - Presidente Prudente
-            </p>
+            </address>
           </Link>
         </div>
       </div>
